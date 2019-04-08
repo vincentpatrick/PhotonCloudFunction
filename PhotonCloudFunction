@@ -1,0 +1,35 @@
+int redled = D0;
+int greenled = D1;
+int blueled = D7;
+
+void setup() {
+    pinMode(redled, OUTPUT);
+    pinMode(greenled, OUTPUT);
+    pinMode(blueled, OUTPUT);
+    
+    digitalWrite(redled, LOW);
+    digitalWrite(greenled, LOW);
+    digitalWrite(blueled, LOW);
+    Particle.function("toggleLights", toggleLights);
+}
+
+int toggleLights(String command){
+    if(command=="red"){
+        digitalWrite(redled, HIGH);
+        return 1;
+    }
+    if(command=="green"){
+        digitalWrite(greenled, HIGH);
+        return 1;
+    }
+    if(command=="blue"){
+        digitalWrite(blueled, HIGH);
+        return 1;
+    }
+    
+}
+void loop(){
+    //toggleLights("red");
+    //toggleLights("green");
+    //toggleLights("blue");
+}
